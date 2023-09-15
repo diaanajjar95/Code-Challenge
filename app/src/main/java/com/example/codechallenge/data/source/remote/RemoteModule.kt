@@ -58,7 +58,7 @@ object RemoteModule {
     @Provides
     fun provideRetrofit(moshi: Moshi, okHttpClient: OkHttpClient): Retrofit {
         return Retrofit.Builder()
-            .baseUrl("https://www.google.com/")
+            .baseUrl(BuildConfig.BASE_URL)
             .addConverterFactory(
                 MoshiConverterFactory.create(moshi).withNullSerialization().asLenient()
             )
