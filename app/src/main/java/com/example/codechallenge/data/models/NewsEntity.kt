@@ -11,7 +11,7 @@ data class NewsEntity(
     val id: Long = 0,
     @ColumnInfo(name = "title") val title: String?,
     @ColumnInfo(name = "type") val type: String?,
-    @ColumnInfo(name = "published_date") val publishedDate: String?,
+    @ColumnInfo(name = "published_date") var publishedDate: String?,
     @ColumnInfo(name = "section") val section: String?,
     @ColumnInfo(name = "source") val source: String?,
     @ColumnInfo(name = "subsection") val subsection: String?,
