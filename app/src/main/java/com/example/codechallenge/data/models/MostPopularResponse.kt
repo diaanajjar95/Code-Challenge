@@ -10,13 +10,13 @@ data class MostPopularResponse(
     @field:Json(name = "num_results")
     val numResults: Int?,
     @field:Json(name = "results")
-    val results: List<Result>?,
+    val newsList: List<NewsItem>?,
     @field:Json(name = "status")
     val status: String?,
 )
 
 @JsonClass(generateAdapter = true)
-data class Result(
+data class NewsItem(
     @field:Json(name = "abstract")
     val `abstract`: String?,
     @field:Json(name = "adx_keywords")

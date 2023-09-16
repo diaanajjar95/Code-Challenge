@@ -6,6 +6,7 @@ plugins {
     kotlin("kapt")
     id("com.google.devtools.ksp")
     id("com.google.dagger.hilt.android")
+    id("dagger.hilt.android.plugin")
 }
 
 android {
@@ -58,6 +59,7 @@ dependencies {
     val hiltVersion = "2.48"
     val coroutinesVersion = "1.7.3"
     val glideVersion = "4.16.0"
+    val roomVersion = "2.5.2"
 
 
     implementation("androidx.core:core-ktx:1.9.0")
@@ -102,6 +104,15 @@ dependencies {
 
     // Proto DataStore
     implementation("androidx.datastore:datastore:1.0.0")
+
+    // Room
+    implementation("androidx.room:room-runtime:$roomVersion")
+    kapt("androidx.room:room-compiler:$roomVersion")
+    annotationProcessor("androidx.room:room-compiler:$roomVersion")
+    // Add the Room KTX dependency for Coroutine support
+    implementation ("androidx.room:room-ktx:$roomVersion")
+
+    kapt ("org.jetbrains.kotlinx:kotlinx-metadata-jvm:0.5.0")
 
 }
 

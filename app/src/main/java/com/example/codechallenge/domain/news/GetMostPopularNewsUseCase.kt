@@ -9,8 +9,8 @@ class GetMostPopularNewsUseCase @Inject constructor(
     private val newsRepository: NewsDataSource,
 ) {
 
-    suspend operator fun invoke(): DefaultResponse<MostPopularResponse> {
-        return newsRepository.getMostPopularNews()
+    suspend operator fun invoke()/*: DefaultResponse<MostPopularResponse>*/ {
+//        return newsRepository.getMostPopularNews()
     }
 
 }

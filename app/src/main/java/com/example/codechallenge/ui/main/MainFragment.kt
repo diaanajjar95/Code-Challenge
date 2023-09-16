@@ -18,6 +18,7 @@ class MainFragment : Fragment() {
     private lateinit var binding: FragmentMainBinding
     private val viewModel: MainViewModel by viewModels()
 
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?,
@@ -29,23 +30,15 @@ class MainFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        viewModel.getMostPopularNews()
-
         binding.bottomNav.setOnItemSelectedListener { item ->
             when (item.itemId) {
                 R.id.dashboard -> {
-                    val fragmentTransaction =
-                        requireActivity().supportFragmentManager.beginTransaction()
-                    fragmentTransaction.replace(R.id.fragment_container, DashboardFragment())
-                    fragmentTransaction.commit()
+                    loadFragment(DashboardFragment())
                     true
                 }
 
                 R.id.more -> {
-                    val fragmentTransaction =
-                        requireActivity().supportFragmentManager.beginTransaction()
-                    fragmentTransaction.replace(R.id.fragment_container, MoreFragment())
-                    fragmentTransaction.commit()
+                    loadFragment(MoreFragment())
                     true
                 }
 
@@ -53,7 +46,16 @@ class MainFragment : Fragment() {
             }
         }
 
+        if (savedInstanceState == null) {
+            loadFragment(DashboardFragment())
+        }
+    }
 
+    private fun loadFragment(fragment: Fragment) {
+        val transaction = childFragmentManager.beginTransaction()
+        transaction.replace(R.id.fragment_container, fragment)
+        transaction.addToBackStack(null)
+        transaction.commit()
     }
 
 }

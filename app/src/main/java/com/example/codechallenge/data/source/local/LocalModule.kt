@@ -4,6 +4,8 @@ import android.content.Context
 import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.preferencesDataStore
+import androidx.room.Room
+import com.example.codechallenge.data.source.local.daos.NewsDao
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -21,6 +23,21 @@ object LocalModule {
     @Provides
     fun provideDataStore(@ApplicationContext context: Context): DataStore<Preferences> {
         return context.appDataStore
+    }
+
+    @Provides
+    @Singleton
+    fun provideAppDatabase(@ApplicationContext context: Context): AppDatabase {
+        return Room.databaseBuilder(
+            context,
+            AppDatabase::class.java,
+            "app_database"
+        ).build()
+    }
+
+    @Provides
+    fun provideNewsDao(appDatabase: AppDatabase): NewsDao {
+        return appDatabase.newsDao()
     }
 
 }

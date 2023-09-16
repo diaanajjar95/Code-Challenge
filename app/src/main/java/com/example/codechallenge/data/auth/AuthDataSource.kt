@@ -1,6 +1,8 @@
 package com.example.codechallenge.data.auth
 
 import com.example.codechallenge.data.models.AppUser
+import com.example.codechallenge.di.IoDispatcher
+import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import javax.inject.Inject
@@ -10,6 +12,7 @@ interface AuthDataSource : AuthLocalDataSource
 
 @Singleton
 class AuthDataSourceImpl @Inject constructor(
+    @IoDispatcher private val dispatcher: CoroutineDispatcher,
     private val localDataSource: AuthLocalDataSource,
 ) : AuthDataSource {
 
@@ -22,7 +25,7 @@ class AuthDataSourceImpl @Inject constructor(
     }
 
     override suspend fun isLoggedIn(email: String, password: String) : AppUser?{
-        return withContext(Dispatchers.IO) {
+        return withContext(dispatcher) {
             localDataSource.isLoggedIn(email,password)
         }
     }

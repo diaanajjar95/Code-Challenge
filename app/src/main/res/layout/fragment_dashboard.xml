@@ -16,7 +16,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/sort_tv"
             android:layout_width="wrap_content"
@@ -36,14 +35,18 @@
             android:background="@drawable/search_view_bg"
             app:layout_constraintTop_toBottomOf="@id/data_tv" />
 
-
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recycler_view"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
             android:layout_marginTop="@dimen/dim_20dp"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/search_view"
-            tools:listitem="@layout/view_item_dashboard" />
+            tools:itemCount="5"
+            tools:listitem="@layout/view_item_news" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

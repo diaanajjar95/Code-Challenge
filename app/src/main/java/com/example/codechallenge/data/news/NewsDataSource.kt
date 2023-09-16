@@ -1,10 +1,12 @@
 package com.example.codechallenge.data.news
 
-import com.example.codechallenge.data.models.MostPopularResponse
-import com.example.codechallenge.data.source.remote.DefaultResponse
+import com.example.codechallenge.data.models.NewsEntity
+import kotlinx.coroutines.flow.Flow
 
 interface NewsDataSource {
 
-    suspend fun getMostPopularNews(): DefaultResponse<MostPopularResponse>
+    val newsList: Flow<List<NewsEntity>>
+
+    suspend fun getMostPopularNews()
 
 }
