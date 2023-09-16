@@ -35,7 +35,6 @@ class RegisterViewModel @Inject constructor(
         password: String,
     ) {
 
-        // validation here
         if (fullName.isEmpty()) {
             _uiState.update {
                 it.copy(
@@ -147,13 +146,10 @@ class RegisterViewModel @Inject constructor(
             password = password
         )
 
-        // now we can register
         viewModelScope.launch {
             authRepository.register(userToBeRegistered)
-            // check if the registration process has been successful then navigate to the main screen and save the user into data store
 
             delay(2000)
-
             _uiState.update {
                 it.copy(
                     navigate = true,

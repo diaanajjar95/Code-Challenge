@@ -1,7 +1,6 @@
 package com.example.codechallenge.ui.main.more
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -16,8 +15,6 @@ import com.example.codechallenge.databinding.FragmentMoreBinding
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
-private const val TAG = "MoreFragment"
-
 @AndroidEntryPoint
 class MoreFragment : Fragment() {
 
@@ -27,7 +24,7 @@ class MoreFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?,
-    ): View? {
+    ): View {
         binding = FragmentMoreBinding.inflate(inflater, container, false)
         return binding.root
     }
@@ -45,8 +42,6 @@ class MoreFragment : Fragment() {
 
                     state.user?.let {
                         binding.user = it
-                    } ?: kotlin.run {
-                        Log.d(TAG, "onViewCreated: user is null")
                     }
 
                     if (state.isLoading) {

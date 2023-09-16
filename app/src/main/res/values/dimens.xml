@@ -3,6 +3,8 @@
 
     <dimen name="dim_150dp">150dp</dimen>
     <dimen name="dim_56dp">56dp</dimen>
+    <dimen name="dim_50dp">50dp</dimen>
+    <dimen name="dim_42dp">42dp</dimen>
     <dimen name="dim_32dp">32dp</dimen>
     <dimen name="dim_31dp">31dp</dimen>
     <dimen name="dim_30dp">30dp</dimen>
@@ -50,8 +52,5 @@
     <dimen name="font_15sp">15sp</dimen>
     <dimen name="font_14sp">14sp</dimen>
     <dimen name="font_12sp">12sp</dimen>
-    <dimen name="dim_42dp">42dp</dimen>
-    <dimen name="dim_50dp">50dp</dimen>
-
 
 </resources>

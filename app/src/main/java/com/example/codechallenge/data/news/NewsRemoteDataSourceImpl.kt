@@ -21,5 +21,4 @@ class NewsRemoteDataSourceImpl @Inject constructor(
         }
     }
 
-
 }

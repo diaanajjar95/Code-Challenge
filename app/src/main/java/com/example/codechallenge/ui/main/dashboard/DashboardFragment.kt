@@ -27,7 +27,7 @@ class DashboardFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?,
-    ): View? {
+    ): View {
         binding = FragmentDashboardBinding.inflate(inflater, container, false)
         return binding.root
     }
@@ -44,7 +44,7 @@ class DashboardFragment : Fragment() {
         newsAdapter.setOnItemClickListener(object :
             NewsAdapter.OnItemClickListener {
             override fun onItemClicked(view: View, item: NewsEntity, position: Int) {
-                Toast.makeText(requireContext(), "clicked on ${item.title}", Toast.LENGTH_SHORT)
+                Toast.makeText(requireContext(), item.title, Toast.LENGTH_SHORT)
                     .show()
             }
         })
@@ -53,7 +53,7 @@ class DashboardFragment : Fragment() {
             repeatOnLifecycle(Lifecycle.State.STARTED) {
                 viewModel.uiState.collect { dashboardUiState ->
 
-                    if (!dashboardUiState.newsList.isNullOrEmpty()) {
+                    if (dashboardUiState.newsList.isNotEmpty()) {
                         newsAdapter.clear()
                         newsAdapter.setItems(dashboardUiState.newsList)
                     }
@@ -71,7 +71,6 @@ class DashboardFragment : Fragment() {
                 }
             }
         }
-
     }
 
     companion object {

@@ -10,7 +10,6 @@ class AuthLocalDataSourceImpl @Inject constructor(
     private val userDataStore: UserDataStore,
 ) : AuthLocalDataSource {
 
-
     override suspend fun login(email: String, password: String) {
         TODO("Not yet implemented")
     }

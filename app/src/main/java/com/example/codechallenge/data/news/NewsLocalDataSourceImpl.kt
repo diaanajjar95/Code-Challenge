@@ -17,7 +17,6 @@ class NewsLocalDataSourceImpl @Inject constructor(
         get() = _newList
 
     override suspend fun refreshNewsItems(newsList: MutableList<NewsEntity>) {
-//        newsDao.deleteAllNews()
         newsDao.insertAllNews(*newsList.toTypedArray())
     }
 
