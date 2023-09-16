@@ -6,7 +6,10 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import com.example.codechallenge.R
 import com.example.codechallenge.databinding.FragmentMainBinding
+import com.example.codechallenge.ui.main.dashboard.DashboardFragment
+import com.example.codechallenge.ui.main.more.MoreFragment
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -27,6 +30,30 @@ class MainFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         viewModel.getMostPopularNews()
+
+        binding.bottomNav.setOnItemSelectedListener { item ->
+            when (item.itemId) {
+                R.id.dashboard -> {
+                    val fragmentTransaction =
+                        requireActivity().supportFragmentManager.beginTransaction()
+                    fragmentTransaction.replace(R.id.fragment_container, DashboardFragment())
+                    fragmentTransaction.commit()
+                    true
+                }
+
+                R.id.more -> {
+                    val fragmentTransaction =
+                        requireActivity().supportFragmentManager.beginTransaction()
+                    fragmentTransaction.replace(R.id.fragment_container, MoreFragment())
+                    fragmentTransaction.commit()
+                    true
+                }
+
+                else -> false
+            }
+        }
+
+
     }
 
 }

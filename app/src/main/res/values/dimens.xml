@@ -127,6 +127,7 @@
     <dimen name="font_7sp">4.516129sp</dimen>
     <dimen name="font_6sp">3.8709679sp</dimen>
     <dimen name="font_5sp">3.2258065sp</dimen>
+    <dimen name="dim_150dp">150dp</dimen>
 
 
 </resources>

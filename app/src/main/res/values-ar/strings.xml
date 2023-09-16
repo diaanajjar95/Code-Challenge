@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Code Challenge</string>
+    <string name="login">تسجيل الدخول</string>
+    <string name="register">التسجيل</string>
+    <string name="email">البريد الإلكتروني</string>
+    <string name="password">كلمة السر</string>
+    <string name="full_name">الاسم الكامل</string>
+    <string name="national_id">الرقم الوطني</string>
+    <string name="phone_no">رقم الهاتف</string>
+    <string name="dob">تاريخ الولادة</string>
+    <string name="dashboard">Dashboard</string>
+    <string name="more">المزيد</string>
+    <string name="data">بيانات</string>
+    <string name="sort">الترتيب</string>
+    <string name="details">التفاصيل</string>
+    <string name="settings">الإعدادات</string>
+    <string name="logout">تسجيل الخروج</string>
+</resources>
