@@ -8,12 +8,7 @@ class IsUserLoggedInUseCase @Inject constructor(
 ) {
 
     suspend operator fun invoke(): Boolean {
-        val user = authRepository.isLoggedIn("", "")
-        return user?.let {
-            true
-        } ?: kotlin.run {
-            false
-        }
+        return false
     }
 
 }

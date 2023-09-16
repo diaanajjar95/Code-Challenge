@@ -1,6 +1,7 @@
 package com.example.codechallenge.data.source.remote
 
 import com.example.codechallenge.BuildConfig
+import com.example.codechallenge.di.NetworkMoshi
 import com.squareup.moshi.Moshi
 import dagger.Module
 import dagger.Provides
@@ -20,6 +21,7 @@ object RemoteModule {
 
     @Singleton
     @Provides
+    @NetworkMoshi
     fun provideMoshi(): Moshi {
         return Moshi.Builder()
             .build()
@@ -56,7 +58,7 @@ object RemoteModule {
 
     @Singleton
     @Provides
-    fun provideRetrofit(moshi: Moshi, okHttpClient: OkHttpClient): Retrofit {
+    fun provideRetrofit(@NetworkMoshi moshi: Moshi, okHttpClient: OkHttpClient): Retrofit {
         return Retrofit.Builder()
             .baseUrl(BuildConfig.BASE_URL)
             .addConverterFactory(

@@ -26,7 +26,7 @@ android {
         val properties = Properties()
         properties.load(project.rootProject.file("local.properties").inputStream())
 
-        buildConfigField("String" , "API_KEY","\"${properties.getProperty("API_KEY")}\"")
+        buildConfigField("String", "API_KEY", "\"${properties.getProperty("API_KEY")}\"")
 
         buildConfigField("String", "BASE_URL", "\"https://api.nytimes.com/svc/\"")
     }
@@ -60,6 +60,7 @@ dependencies {
     val coroutinesVersion = "1.7.3"
     val glideVersion = "4.16.0"
     val roomVersion = "2.5.2"
+    val moshiVersion = "1.15.0"
 
 
     implementation("androidx.core:core-ktx:1.9.0")
@@ -95,8 +96,9 @@ dependencies {
 
     //Moshi
     implementation("com.squareup.retrofit2:converter-moshi:2.9.0")
-    implementation("com.squareup.moshi:moshi-kotlin:1.15.0")
-    ksp("com.squareup.moshi:moshi-kotlin-codegen:1.15.0")
+    implementation("com.squareup.moshi:moshi-kotlin:$moshiVersion")
+    implementation("com.squareup.moshi:moshi:$moshiVersion")
+    ksp("com.squareup.moshi:moshi-kotlin-codegen:$moshiVersion")
 
 
     // Preferences DataStore
@@ -110,9 +112,9 @@ dependencies {
     kapt("androidx.room:room-compiler:$roomVersion")
     annotationProcessor("androidx.room:room-compiler:$roomVersion")
     // Add the Room KTX dependency for Coroutine support
-    implementation ("androidx.room:room-ktx:$roomVersion")
+    implementation("androidx.room:room-ktx:$roomVersion")
 
-    kapt ("org.jetbrains.kotlinx:kotlinx-metadata-jvm:0.5.0")
+    kapt("org.jetbrains.kotlinx:kotlinx-metadata-jvm:0.5.0")
 
 }
 

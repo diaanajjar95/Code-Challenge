@@ -3,7 +3,7 @@ package com.example.codechallenge.data.auth
 import com.example.codechallenge.data.models.AppUser
 import com.example.codechallenge.di.IoDispatcher
 import kotlinx.coroutines.CoroutineDispatcher
-import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.withContext
 import javax.inject.Inject
 import javax.inject.Singleton
@@ -20,18 +20,22 @@ class AuthDataSourceImpl @Inject constructor(
         TODO("Not yet implemented")
     }
 
-    override suspend fun register(email: String, password: String) {
-        TODO("Not yet implemented")
+    override suspend fun register(user: AppUser) {
+        withContext(dispatcher) {
+            localDataSource.register(user)
+        }
     }
 
-    override suspend fun isLoggedIn(email: String, password: String) : AppUser?{
+    override suspend fun getRegisteredUser(): Flow<AppUser?> {
         return withContext(dispatcher) {
-            localDataSource.isLoggedIn(email,password)
+            localDataSource.getRegisteredUser()
         }
     }
 
     override suspend fun logout() {
-        TODO("Not yet implemented")
+        withContext(dispatcher) {
+            localDataSource.logout()
+        }
     }
 
 }

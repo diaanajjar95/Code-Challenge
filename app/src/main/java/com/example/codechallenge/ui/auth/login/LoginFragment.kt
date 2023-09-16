@@ -8,7 +8,6 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import com.example.codechallenge.databinding.FragmentLoginBinding
 
-
 class LoginFragment : Fragment() {
 
     private val viewModel: LoginViewModel by viewModels()

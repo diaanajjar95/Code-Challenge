@@ -6,7 +6,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.fragment.findNavController
 import com.example.codechallenge.R
 import com.example.codechallenge.databinding.FragmentSplashBinding
@@ -32,11 +34,13 @@ class SplashFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         viewLifecycleOwner.lifecycleScope.launch {
-            viewModel.navigate.collectLatest { isLoggedIn ->
-                if (isLoggedIn) {
-                    findNavController().navigate(R.id.action_splashFragment_to_mainFragment)
-                } else {
-                    findNavController().navigate(R.id.action_splashFragment_to_authFragment)
+            repeatOnLifecycle(Lifecycle.State.STARTED) {
+                viewModel.navigate.collectLatest { isLoggedIn ->
+                    if (isLoggedIn) {
+                        findNavController().navigate(R.id.action_splashFragment_to_mainFragment)
+                    } else {
+                        findNavController().navigate(R.id.action_splashFragment_to_authFragment)
+                    }
                 }
             }
         }

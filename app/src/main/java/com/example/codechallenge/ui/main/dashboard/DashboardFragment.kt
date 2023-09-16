@@ -17,7 +17,6 @@ import com.example.codechallenge.ui.base.generic.SpaceItemDecoration
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
-
 @AndroidEntryPoint
 class DashboardFragment : Fragment() {
 
@@ -52,9 +51,23 @@ class DashboardFragment : Fragment() {
 
         viewLifecycleOwner.lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.STARTED) {
-                viewModel.newsState.collect {
-                    newsAdapter.clear()
-                    newsAdapter.setItems(it)
+                viewModel.uiState.collect { dashboardUiState ->
+
+                    if (!dashboardUiState.newsList.isNullOrEmpty()) {
+                        newsAdapter.clear()
+                        newsAdapter.setItems(dashboardUiState.newsList)
+                    }
+
+                    dashboardUiState.message?.let { message ->
+                        Toast.makeText(requireContext(), message, Toast.LENGTH_SHORT).show()
+                        viewModel.messageShown()
+                    }
+
+                    if (dashboardUiState.isLoading) {
+                        binding.layoutProgress.root.visibility = View.VISIBLE
+                    } else {
+                        binding.layoutProgress.root.visibility = View.GONE
+                    }
                 }
             }
         }

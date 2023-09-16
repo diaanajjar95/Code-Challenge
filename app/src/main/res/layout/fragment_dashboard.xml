@@ -8,6 +8,16 @@
         android:paddingHorizontal="@dimen/dim_42dp"
         android:paddingVertical="@dimen/dim_16dp">
 
+        <include
+            android:id="@+id/layoutProgress"
+            layout="@layout/full_screen_progress"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@null"
+            android:clickable="true"
+            android:focusable="true"
+            android:visibility="gone" />
+
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/data_tv"
             android:layout_width="wrap_content"

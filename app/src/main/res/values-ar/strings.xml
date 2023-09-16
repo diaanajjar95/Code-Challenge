@@ -16,4 +16,13 @@
     <string name="details">التفاصيل</string>
     <string name="settings">الإعدادات</string>
     <string name="logout">تسجيل الخروج</string>
+    <string name="full_name_empty_error">full nam is required</string>
+    <string name="email_empty_error">email is required</string>
+    <string name="email_validation_error">valid email is required</string>
+    <string name="national_id_empty_error">National Id is required</string>
+    <string name="phone_no_empty_error">phone number is required</string>
+    <string name="dob_empty_error">Date of birth is required</string>
+    <string name="password_empty_error">password is required</string>
+    <string name="password_validation_error">passowrd should be at least 8 chars and contains at least one upper case letter, symbole and number</string>
+    <string name="offline_mode_message">the app is Offline</string>
 </resources>

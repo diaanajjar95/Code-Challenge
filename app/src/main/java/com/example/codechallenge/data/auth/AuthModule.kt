@@ -22,4 +22,10 @@ abstract class AuthModule {
         authDataSourceImpl: AuthDataSourceImpl,
     ): AuthDataSource
 
+    @Binds
+    @Singleton
+    abstract fun bindUserDataStore(
+        userDataStoreImplImpl: UserDataStoreImpl,
+    ): UserDataStore
+
 }

@@ -1,9 +1,10 @@
 package com.example.codechallenge.data.models
 
 data class AppUser(
+    val fullName: String,
     val email: String,
-    val password: String,
-    val phone: String,
     val nationalId: String,
+    val phone: String,
     val dateOfBirth: String,
+    val password: String,
 )

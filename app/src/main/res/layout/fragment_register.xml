@@ -7,168 +7,190 @@
     android:padding="@dimen/dim_16dp"
     tools:context=".ui.auth.register.RegisterFragment">
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/full_name"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+    <include
+        android:id="@+id/layoutProgress"
+        layout="@layout/full_screen_progress"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="@dimen/dim_50dp"
-        android:layout_marginTop="@dimen/dim_30dp"
-        android:layout_marginBottom="@dimen/dim_16dp"
-        android:hint="@string/full_name"
-        app:boxStrokeColor="@color/black"
-        app:boxStrokeWidthFocused="@dimen/dim_2dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        android:layout_height="match_parent"
+        android:background="@null"
+        android:clickable="true"
+        android:focusable="true"
+        android:visibility="gone" />
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/full_name_editText"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:inputType="text"
-            android:maxLines="1"
-            android:textCursorDrawable="@null" />
-
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/email"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="@dimen/dim_50dp"
-        android:layout_marginTop="@dimen/dim_16dp"
-        android:layout_marginBottom="@dimen/dim_16dp"
-        android:hint="@string/email"
-        app:boxStrokeColor="@color/black"
-        app:boxStrokeWidthFocused="@dimen/dim_2dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/full_name">
+        android:layout_height="match_parent">
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/email_editText"
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:inputType="textEmailAddress"
-            android:maxLines="1"
-            android:textCursorDrawable="@null" />
+            android:layout_height="match_parent">
 
-    </com.google.android.material.textfield.TextInputLayout>
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/full_name"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/dim_50dp"
+                android:layout_marginTop="@dimen/dim_30dp"
+                android:layout_marginBottom="@dimen/dim_16dp"
+                android:hint="@string/full_name"
+                app:boxStrokeColor="@color/black"
+                app:boxStrokeWidthFocused="@dimen/dim_2dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/national_id"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="@dimen/dim_50dp"
-        android:layout_marginTop="@dimen/dim_16dp"
-        android:layout_marginBottom="@dimen/dim_16dp"
-        android:hint="@string/national_id"
-        app:boxStrokeColor="@color/black"
-        app:boxStrokeWidthFocused="@dimen/dim_2dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/email">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/full_name_editText"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:inputType="text"
+                    android:maxLines="1"
+                    android:textCursorDrawable="@null" />
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/national_id_editText"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:inputType="number"
-            android:maxLines="1"
-            android:textCursorDrawable="@null" />
+            </com.google.android.material.textfield.TextInputLayout>
 
-    </com.google.android.material.textfield.TextInputLayout>
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/email"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/dim_50dp"
+                android:layout_marginTop="@dimen/dim_16dp"
+                android:layout_marginBottom="@dimen/dim_16dp"
+                android:hint="@string/email"
+                app:boxStrokeColor="@color/black"
+                app:boxStrokeWidthFocused="@dimen/dim_2dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/full_name">
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/phone_no"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="@dimen/dim_50dp"
-        android:layout_marginTop="@dimen/dim_16dp"
-        android:layout_marginBottom="@dimen/dim_16dp"
-        android:hint="@string/phone_no"
-        app:boxStrokeColor="@color/black"
-        app:boxStrokeWidthFocused="@dimen/dim_2dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/national_id">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/email_editText"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:inputType="textEmailAddress"
+                    android:maxLines="1"
+                    android:textCursorDrawable="@null" />
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/phone_no_editText"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:inputType="number"
-            android:maxLines="1"
-            android:textCursorDrawable="@null" />
+            </com.google.android.material.textfield.TextInputLayout>
 
-    </com.google.android.material.textfield.TextInputLayout>
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/national_id"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/dim_50dp"
+                android:layout_marginTop="@dimen/dim_16dp"
+                android:layout_marginBottom="@dimen/dim_16dp"
+                android:hint="@string/national_id"
+                app:boxStrokeColor="@color/black"
+                app:boxStrokeWidthFocused="@dimen/dim_2dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/email">
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/dob"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="@dimen/dim_50dp"
-        android:layout_marginTop="@dimen/dim_16dp"
-        android:layout_marginBottom="@dimen/dim_16dp"
-        android:hint="@string/dob"
-        app:boxStrokeColor="@color/black"
-        app:boxStrokeWidthFocused="@dimen/dim_2dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/phone_no">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/national_id_editText"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:inputType="number"
+                    android:maxLines="1"
+                    android:textCursorDrawable="@null" />
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/dob_editText"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:inputType="date"
-            android:maxLines="1"
-            android:textCursorDrawable="@null" />
+            </com.google.android.material.textfield.TextInputLayout>
 
-    </com.google.android.material.textfield.TextInputLayout>
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/phone_no"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/dim_50dp"
+                android:layout_marginTop="@dimen/dim_16dp"
+                android:layout_marginBottom="@dimen/dim_16dp"
+                android:hint="@string/phone_no"
+                app:boxStrokeColor="@color/black"
+                app:boxStrokeWidthFocused="@dimen/dim_2dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/national_id">
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/password"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="@dimen/dim_50dp"
-        android:layout_marginTop="@dimen/dim_16dp"
-        android:layout_marginBottom="@dimen/dim_16dp"
-        android:hint="@string/password"
-        app:boxStrokeColor="@color/black"
-        app:boxStrokeWidthFocused="@dimen/dim_2dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/dob">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/phone_no_editText"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:inputType="number"
+                    android:maxLines="1"
+                    android:textCursorDrawable="@null" />
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/password_editText"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:inputType="text"
-            android:maxLines="1"
-            android:textCursorDrawable="@null" />
+            </com.google.android.material.textfield.TextInputLayout>
 
-    </com.google.android.material.textfield.TextInputLayout>
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/dob"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/dim_50dp"
+                android:layout_marginTop="@dimen/dim_16dp"
+                android:layout_marginBottom="@dimen/dim_16dp"
+                android:hint="@string/dob"
+                app:boxStrokeColor="@color/black"
+                app:boxStrokeWidthFocused="@dimen/dim_2dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/phone_no">
 
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/dob_editText"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:inputType="date"
+                    android:maxLines="1"
+                    android:textCursorDrawable="@null" />
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/btnLogin"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="@dimen/dim_50dp"
-        android:layout_marginTop="@dimen/dim_26dp"
-        android:text="@string/register"
-        android:textColor="@color/white"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/password" />
+            </com.google.android.material.textfield.TextInputLayout>
 
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/password"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/dim_50dp"
+                android:layout_marginTop="@dimen/dim_16dp"
+                android:layout_marginBottom="@dimen/dim_16dp"
+                android:hint="@string/password"
+                app:boxStrokeColor="@color/black"
+                app:boxStrokeWidthFocused="@dimen/dim_2dp"
+                app:endIconMode="password_toggle"
+                app:endIconTint="@color/grey"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/dob">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/password_editText"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:inputType="textPassword"
+                    android:maxLines="1"
+                    android:textCursorDrawable="@null" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnregister"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/dim_50dp"
+                android:layout_marginTop="@dimen/dim_26dp"
+                android:text="@string/register"
+                android:textColor="@color/white"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/password" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.core.widget.NestedScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

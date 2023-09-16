@@ -1,12 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:app="http://schemas.android.com/apk/res-auto">
 
+    <data>
+
+        <variable
+            name="user"
+            type="com.example.codechallenge.data.models.AppUser" />
+
+    </data>
+
     <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:paddingHorizontal="@dimen/dim_42dp"
         android:paddingVertical="@dimen/dim_16dp">
 
+
+        <include
+            android:id="@+id/layoutProgress"
+            layout="@layout/full_screen_progress"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@null"
+            android:clickable="true"
+            android:focusable="true"
+            android:visibility="gone" />
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/iv"
@@ -21,7 +39,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/dim_32dp"
-            android:text="@string/register"
+            android:text="@{user.fullName}"
             app:layout_constraintStart_toEndOf="@id/iv"
             app:layout_constraintTop_toTopOf="@id/iv" />
 
@@ -31,7 +49,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="@dimen/dim_32dp"
-            android:text="@string/register"
+            android:text="@{user.email}"
             app:layout_constraintBottom_toBottomOf="@id/iv"
             app:layout_constraintStart_toEndOf="@id/iv" />
 
@@ -58,6 +76,7 @@
             android:id="@+id/national_id_value_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:text="@{user.nationalId}"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/national_id_tv" />
 
@@ -74,6 +93,7 @@
             android:id="@+id/phone_no_value_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:text="@{user.phone}"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/phone_no_tv" />
 
@@ -91,6 +111,7 @@
             android:id="@+id/dob_value_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:text="@{user.dateOfBirth}"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/dob_tv" />
 
@@ -114,7 +135,7 @@
 
 
         <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/sort_tv"
+            android:id="@+id/logout_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/dim_16dp"

@@ -17,11 +17,6 @@ class AuthFragment : Fragment() {
     private lateinit var binding: FragmentAuthBinding
     private val viewModel: AuthViewModel by viewModels()
 
-    val fragmentTitles = arrayOf(
-        "Login",
-        "Register",
-    )
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?,
@@ -35,6 +30,11 @@ class AuthFragment : Fragment() {
 
         val adapter = ViewPagerAdapter(parentFragmentManager, lifecycle)
         binding.viewPager.adapter = adapter
+
+        val fragmentTitles = arrayOf(
+            getString(R.string.login),
+            getString(R.string.register),
+        )
 
         TabLayoutMediator(binding.tabLayout, binding.viewPager) { tab, position ->
             tab.text = fragmentTitles[position]

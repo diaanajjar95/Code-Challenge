@@ -6,6 +6,9 @@ import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.preferencesDataStore
 import androidx.room.Room
 import com.example.codechallenge.data.source.local.daos.NewsDao
+import com.example.codechallenge.di.DatabaseMoshi
+import com.squareup.moshi.Moshi
+import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -18,6 +21,15 @@ private val Context.appDataStore by preferencesDataStore("app_preferences")
 @Module
 @InstallIn(SingletonComponent::class)
 object LocalModule {
+
+    @Provides
+    @Singleton
+    @DatabaseMoshi
+    fun provideDatabaseMoshi(): Moshi {
+        return Moshi.Builder()
+            .addLast(KotlinJsonAdapterFactory())
+            .build()
+    }
 
     @Singleton
     @Provides
